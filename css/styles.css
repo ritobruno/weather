@@ -1,0 +1,96 @@
+/* Mixins Media queries */
+/* End of Mixins Media queries */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #f2f2f2;
+  font-size: 16px; }
+
+#container {
+  background-color: white;
+  margin: 6px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 1px 6px 0px rgba(50, 50, 50, 0.4);
+  -moz-box-shadow: 0px 1px 6px 0px rgba(50, 50, 50, 0.4);
+  box-shadow: 0px 1px 6px 0px rgba(50, 50, 50, 0.4); }
+
+.location {
+  text-align: center;
+  text-transform: uppercase; }
+
+.day-container {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  text-decoration: none;
+  color: #333;
+  box-sizing: border-box;
+  display: block; }
+
+.date {
+  float: left;
+  width: 40%;
+  display: inline-block;
+  padding-left: 20px;
+  margin-left: 25px; }
+
+.week-day {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 30px; }
+
+.week-day-long {
+  color: #808080;
+  font-weight: 300; }
+
+.day-temp {
+  font-weight: 700;
+  display: inline-block;
+  width: 30%;
+  text-align: right;
+  font-size: 30px; }
+
+.temp-min {
+  font-weight: 300;
+  height: 34px; }
+
+.temp-max {
+  height: 30px; }
+
+.icon {
+  float: left; }
+
+.circle {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  clip: rect(0px, 61px, 60px, 30px);
+  margin-left: -40px; }
+
+.color1 {
+  background-color: #fcba08; }
+
+.color2 {
+  background-color: #d2e5ec; }
+
+.color3 {
+  background-color: #d0dbe0; }
+
+.color4 {
+  background-color: #9ca4a8; }
+
+.color9 {
+  background-color: #7fcdee; }
+
+.color10 {
+  background-color: #29abe2; }
+
+.color11 {
+  background-color: #2983e2; }
+
+.color13 {
+  background-color: #cccccc; }
+
+.color50 {
+  background-color: #000; }
+
+/*# sourceMappingURL=styles.css.map */
