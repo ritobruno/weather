@@ -3,7 +3,7 @@ $(document).ready(function(){
 /*** Find Location ****/
 var latitude;
 var longitude;
-
+/* comment to test push */
 
 function geoFindMe() {
     var output = $("#container");
