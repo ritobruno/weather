@@ -3,7 +3,8 @@ $(document).ready(function(){
 /*** Find Location ****/
 var latitude;
 var longitude;
-/* comment to test push */
+
+var txtFun = ["Cerveja", "chá", ];
 
 function geoFindMe() {
     var output = $("#container");
@@ -32,10 +33,12 @@ function geoFindMe() {
       
             var newArray = [];
 
+
             $.getJSON(api3, function(data){
                 
-              $(".location").append("<span>" + data.city.name + "</span>");
+                $(".location").append("<span>" + data.city.name + "</span>");
                 
+                /* Get data from openWeather api */
                 for (var i=0; i < data.list.length; i++) {
 
                     var tempMax = Math.round(data.list[i].temp.max);
@@ -57,36 +60,19 @@ function geoFindMe() {
                     newArray.unshift(iconWnum);
                     
                     
+                    output.append("<a href='#' class='day-container dayc"+ [i+1] +"'><div class='icon circle color" + iconWnum + "'></div><div class='date'><div class='week-day'>" + weekDay + "</div>" + " <div class='week-day-long'>" + weekDayLong + "</div></div>" + "<div class='day-temp'>"+"<div class='temp-max'>" + tempMax + "º</div>" + "<div class='temp-min'>" + tempMin + "º</div></div><div class='fun-content" + [i+1] + "'></div></a>");
                     
-                    output.append("<a href='#' class='day-container'><div class='icon circle color" + iconWnum + "'></div><div class='date'><div class='week-day'>" + weekDay + "</div>" + " <div class='week-day-long'>" + weekDayLong + "</div></div>" + "<div class='day-temp'>"+"<div class='temp-max'>" + tempMax + "º</div>" + "<div class='temp-min'>" + tempMin + "º</div></div></a>");
+                    $("#container .dayc1 .date .week-day").html("Today");
                     
+                    $(".fun-content"+[i+1]).append(txtFun[i]);
                     
-                }
-            
-                console.log(newArray);
+                };
                 
                 
+                coiso();
                 
-                
-                /* set Height to .day-container */
-                $(".day-container").click(function(){
-                    
-                    event.preventDefault();
-                    
-                    if($(this).hasClass('active')){
-                        $(this).removeClass('active');
-                        $(this).animate({
-                            height: 80
-                            }, 300 ); 
-                     }
-                    else {
-                        $(this).addClass("active");
-                        $(this).animate({
-                            height: 200
-                            }, 300 );
-                    }
-                });
-            })
+            });
+
         }
 
         function error() {
@@ -100,26 +86,31 @@ function geoFindMe() {
     }
     
 }
-
-geoFindMe();
     
 
-    /*
-if (newArray = 1) {
-        $( ".circle" ).css("background-color", "green");
-        }
-
-    else if (newArray = 10) {
-         $( ".circle" ).css("display", "none");
-         }
+    geoFindMe();
 
 
-    else {
-            $( ".circle" ).css("background-color", "yellow");
-        }
-        
-        */
-    
-    /* $(".locating").hide(); */
+    function coiso() {
+        $(".day-container").click(function(){
+
+            event.preventDefault();
+
+            if($(this).hasClass('active')){
+                $(this).removeClass('active');
+                $(this).animate({
+                    height: 80
+                    }, 300 );
+             }
+            else {
+                $(this).addClass("active");
+                $(this).animate({
+                    height: 200
+                    }, 300 );
+            }
+
+            $("#container .dayc1 .fun-content").html("This is where cool stuff appears!");
+        });
+    }
     
 });
