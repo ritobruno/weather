@@ -8,8 +8,6 @@ body {
 #container {
   background-color: white;
   margin: 6px;
-  max-width: 768px;
-  margin: 0 auto;
   border-radius: 4px;
   -webkit-box-shadow: 0px 1px 6px 0px rgba(50, 50, 50, 0.4);
   -moz-box-shadow: 0px 1px 6px 0px rgba(50, 50, 50, 0.4);
@@ -28,27 +26,14 @@ body {
   display: block; }
 
 a.day-container.active {
-  background-color: #fcba08;
-  color: white !important; }
-
-a.day-container.active .circle {
-  display: none; }
-a.day-container.active .week-day-long {
-  color: white; }
-
-a.day-container.active .date {
-  margin-left: 0;
-  padding-left: 10px;
-  transition: all 0.5s ease;
-  width: 53%; }
+  background-color: #fcba08; }
 
 .date {
   float: left;
   width: 40%;
   display: inline-block;
   padding-left: 20px;
-  margin-left: 25px;
-  transition: all 0.5s ease; }
+  margin-left: 25px; }
 
 .week-day {
   text-transform: uppercase;
