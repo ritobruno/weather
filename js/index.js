@@ -8,6 +8,7 @@ var txtFun = ["Cerveja", "chá", ];
 
 function geoFindMe() {
     var output = $("#container");
+    var bull = $(".bullsheet");
 
     if (!navigator.geolocation){
     output.append("<p>Geolocation is not supported by your browser</p>");
@@ -60,16 +61,55 @@ function geoFindMe() {
                     newArray.unshift(iconWnum);
 
 
-                    output.append("<a href='#' class='day-container dayc"+ [i+1] +"'><div class='icon circle color" + iconWnum + "'></div><div class='date'><div class='week-day'>" + weekDay + "</div>" + " <div class='week-day-long'>" + weekDayLong + "</div></div>" + "<div class='day-temp'>"+"<div class='temp-max'>" + tempMax + "º</div>" + "<div class='temp-min'>" + tempMin + "º</div></div><div class='fun-content" + [i+1] + "'></div></a>");
+                    output.append("<a href='#' class='day-container dayc"+ [i+1] + " " + iconWnum +"'><div class='icon circle color" + iconWnum + "'></div><div class='date'><div class='week-day'>" + weekDay + "</div>" + " <div class='week-day-long'>" + weekDayLong + "</div></div>" + "<div class='day-temp'>"+"<div class='temp-max'>" + tempMax + "º</div>" + "<div class='temp-min'>" + tempMin + "º</div></div><div class='fun-content" + [i+1] + "'></div></a>");
 
                     $("#container .dayc1 .date .week-day").html("Today");
 
-                    $(".fun-content"+[i+1]).append(txtFun[i]);
+                    $(".bullsheet .t1").html(tempMax);
+
 
                 };
 
+                /* click to expand day-container */
+                $(".day-container").click(function(){
+                        event.preventDefault();
 
-                coiso();
+                        if($(this).hasClass('active')){
+                            $(this).removeClass("active");
+                            $(this).animate({
+                                height: 80
+                                }, 300 );
+                         }
+                        else {
+                            $(this).addClass("active");
+                            $(this).animate({
+                                height: 200
+                                }, 300 );
+
+                            $(this).addClass(function () {
+
+                                if($(this).hasClass("color1")) {
+                                    $(this).removeClass("color1");
+                                }
+                                else {
+                                    $(this).addClass("color1");
+                                }
+
+
+                            }
+
+
+
+                            );
+
+
+
+
+                        }
+
+                });
+
+
 
             });
 
@@ -89,26 +129,14 @@ function geoFindMe() {
 
 geoFindMe();
 
-    /* click to expand day-container */
-    function coiso() {
-        $(".day-container").click(function(){
 
-            event.preventDefault();
-
-            if($(this).hasClass('active')){
-                $(this).removeClass('active');
-                $(this).animate({
-                    height: 80
-                    }, 300 );
-             }
-            else {
-                $(this).addClass("active m");
-                $(this).animate({
-                    height: 200
-                    }, 300 );
-            }
-
-        });
-    }
 
 });
+
+/*
+
+If iconWnum == 1 then background #day-container.active == #AAA
+If iconWnum == 2
+
+
+*/
